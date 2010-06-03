@@ -15,10 +15,10 @@ class Application_Modules_Main_Logic_Index extends Saros_Core_Logic
 	* Delete Posts
 	* Edit Posts
 	*
-	* Login
-	* Logout
-	* Register
-	* Forgot Password
+	* DONE - Login
+	* DONE - Logout
+	* DONE - Register
+	* DONE - Forgot Password
 	*
 	* Profile
 	* Member List (it's own page?)

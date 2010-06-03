@@ -22,7 +22,7 @@
 		Show Online
 		Send Digests
 */
-class Application_Modules_Main_Logic_ControlPanel extends Saros_Core_Logic
+class Application_Modules_User_Logic_ControlPanel extends Saros_Core_Logic
 {
 	/**
 	* This is the main entry point for the control panel,
@@ -45,7 +45,7 @@ class Application_Modules_Main_Logic_ControlPanel extends Saros_Core_Logic
 
 	public function privacyAction()
 	{
-		
+
 	}
 
 
