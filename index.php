@@ -15,9 +15,6 @@ session_start();
 // Lets turn on error reporting
 error_reporting(E_ALL);
 
-// If this is true, some REALLY funky things can happen
-set_magic_quotes_runtime(false);
-
 define("ROOT_PATH",  realpath(dirname(__FILE__))."/");
 
 //die(get_include_path());
