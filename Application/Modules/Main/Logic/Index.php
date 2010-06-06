@@ -12,24 +12,21 @@ class Application_Modules_Main_Logic_Index extends Saros_Core_Logic
 	*
 	* DONE - Private Messages
 	*
-	* Delete Posts
-	* Edit Posts
+	* DONE - Delete Posts
+	* DONE - Edit Posts
+	* DONE - Move Posts
 	*
 	* DONE - Login
 	* DONE - Logout
 	* DONE - Register
 	* DONE - Forgot Password
 	*
-	* Profile
-	* Member List (it's own page?)
-	*
-	* \Members
-	* \Members\14
-	*
-	* Online List
-	*
-	*
-	*
+	* DONE - Profile
+	* DONE - Member List (it's own page?)
+	* DONE - 	User/View/Profile/4
+	* DONE -  	User/View/List
+	* DONE - Online List
+
 	* Search
 	*/
 
