@@ -42,6 +42,7 @@ class Application_Setup
 
 		// Set the default theme
 		$registry->display->setTheme("Default");
+		
 		// Set up the controller's template
 		$registry->display->setLayout("Main");
 	}

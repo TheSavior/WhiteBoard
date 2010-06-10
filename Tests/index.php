@@ -23,7 +23,6 @@ define("ROOT_PATH",  realpath(dirname(dirname(__FILE__)))."/");
 
 function autoload($classname)
 {
-
 	$filename = str_replace("_","/",$classname).".php";
 	if(file_exists(ROOT_PATH.$filename))
 		require_once(ROOT_PATH.$filename);

@@ -10,13 +10,7 @@ class Tests_AllTests
 
     public static function suite()
     {
-        $suite = new PHPUnit_Framework_TestSuite('WhiteBoard Suite');
-
-		// Add the Spot TestSuite
-		//require_once('Tests/Auth/Adapter/Spot.php');
-		//$suite->addTestSuite("Tests_Auth_Adapter_Spot");
-
-        //$suite->addTestSuite(Spot_Tests::suite());
+        $suite = new PHPUnit_Framework_TestSuite('Test Suite');
 
         $it = new RecursiveIteratorIterator(
         		new RecursiveDirectoryIterator(dirname(__FILE__) . '/Test'));
@@ -34,11 +28,6 @@ class Tests_AllTests
             require_once($path);
             $suite->addTestSuite($className);
 
-            //echo $className."\n\n";
-
-            //$className = $it->current()->getBasename('.php');
-            //echo "Class: ".$className."\n";
-            //$suite->addTest($className::suite());
         }
 
         return $suite;
