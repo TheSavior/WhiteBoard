@@ -1,5 +1,5 @@
 <?php
-class Application_Modules_Main_Controllers_Topic extends Saros_Core_Controller
+class Application_Modules_Main_Controllers_Topic extends Saros_Application_Controller
 {
 	// This will show the list of private messages
 	public function indexAction()

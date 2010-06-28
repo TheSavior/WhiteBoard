@@ -2,7 +2,7 @@
 class Application_Models_Mappers_Config extends Spot_Mapper_Abstract
 {
 	// table name
-	protected $table = "Bans";
+	protected $table = "Config";
 
 	public $id = array("type" => "int", "primary" => true, "serial" => true);
 	public $name = array("type" => "string");

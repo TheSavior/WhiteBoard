@@ -3,7 +3,7 @@
 * This contains the user viewing methods:
 * MemberList, profile, online list
 */
-class Application_Modules_User_Controllers_View extends Saros_Core_Controller
+class Application_Modules_User_Controllers_View extends Saros_Application_Controller
 {
 
 	/**

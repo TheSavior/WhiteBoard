@@ -3,7 +3,7 @@
 * This will do things relative to posts:
 * edit, delete, move
 */
-class Application_Modules_User_Controllers_Post extends Saros_Core_Controller
+class Application_Modules_User_Controllers_Post extends Saros_Application_Controller
 {
 	/**
 	* Use?

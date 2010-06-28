@@ -22,7 +22,7 @@
 		Show Online
 		Send Digests
 */
-class Application_Modules_User_Controllers_ControlPanel extends Saros_Core_Controller
+class Application_Modules_User_Controllers_ControlPanel extends Saros_Application_Controller
 {
 	/**
 	* This is the main entry point for the control panel,

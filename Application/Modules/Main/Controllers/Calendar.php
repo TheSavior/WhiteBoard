@@ -1,5 +1,5 @@
 <?php
-class Application_Modules_Main_Controllers_Calendar extends Saros_Core_Controller
+class Application_Modules_Main_Controllers_Calendar extends Saros_Application_Controller
 {
 	/**
 	* This will display the main calendar

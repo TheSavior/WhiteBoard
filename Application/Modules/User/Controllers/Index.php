@@ -3,7 +3,7 @@
 * This will contain the main user actions:
 * login, logout, forgout user password, register
 */
-class Application_Modules_User_Controllers_ControlPanel extends Saros_Core_Controller
+class Application_Modules_User_Controllers_ControlPanel extends Saros_Application_Controller
 {
 	public function init()
 	{

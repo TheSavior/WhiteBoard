@@ -1,22 +1,44 @@
 <?php
-class Application_Modules_Installer_Controllers_Index extends Saros_Application_Controller
+class Application_Modules_Installer_Models_BuildConfig extends Application_Modules_Installer_Models_PopulateTable
 {
-	public function indexAction()
+	protected $adapter;
+	protected $mapper;
+
+
+	public function __construct(Spot_Adapter_Interface $spotAdapter)
 	{
-		$configMapper = new Application_Models_Mappers_Config();
+		$this->adapter = $spotAdapter;
+	}
 
-		$config = $configMapper->get();
-		$config->name = "SiteName";
-		$config->value = "Forum_Name"; // This should be a dynamic variables
-		// $config->readonly = 0; // when enum's are supported
-		$config->description = "The name of the website to appear in the titlebar, and at the start of breadcrumbs.";
+	/**
+	* Run will migrate the table and populate
+	*
+	*/
+	public function run()
+	{
+		$this->mapper = new Application_Models_Mappers_Config();
 
-		$configDefaults = array(
+		$this->mapper->migrate();
+
+		$this->setValues();
+
+		
+		$this->populate();
+	}
+
+	protected function setValues()
+	{
+		$timestamp = time();
+
+		// Default values for config entities
+		$this->defaultValues = array(
 			// "readonly" => 0, // For Enums
 			"group" => "general",
 			"time_modified" => $timestamp
 		);
-		$configs = array(
+
+		// The config values to insert
+		$this->insertValues = array(
 			array(	"name" => "SiteName",
 					"value" => "Forum_Name", // Dynamic Variables
 					"description" => "The name of the website to appear in the titlebar, and at the start of breadcrumbs.",
@@ -59,11 +81,5 @@ class Application_Modules_Installer_Controllers_Index extends Saros_Application_
 					"description" => "The number of minutes for the Users Online list to display"
 			)
 		);
-
-		$this->view->Version = Saros_Version::getVersion();
-	}
-	public function val()
-	{
-		return true;
 	}
 }
