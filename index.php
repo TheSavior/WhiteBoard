@@ -20,7 +20,7 @@ define("ROOT_PATH",  realpath(dirname(__FILE__))."/");
 //die(get_include_path());
 // Autoload all of the classes that are not included
 
-require_once('/Library/Saros/Core/AutoLoader.php');
+require_once('Library/Saros/Core/AutoLoader.php');
 spl_autoload_register(array('Saros_Core_AutoLoader', 'autoload'));
 
 /**
