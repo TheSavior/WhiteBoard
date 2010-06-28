@@ -1,36 +1,31 @@
 <?php
-class Application_Modules_Installer_Models_BuildConfig
+class Application_Modules_Installer_Models_BuildConfig extends Application_Modules_Installer_Models_PopulateTable
 {
-	protected $adapter;
-	protected $mapper;
-
-	public function __construct(Spot_Adapter_Interface $spotAdapter)
-	{
-		$this->adapter = $spotAdapter;
-	}
-
 	/**
 	* Run will migrate the table and populate
-	*
 	*/
-	public function run()
+	public static function run($adapter)
 	{
-		$this->mapper = new Application_Models_Mappers_Config();
+		self::setMapper(new Application_Models_Mappers_Config($adapter));
 
-		$this->mapper->migrate();
-		$this->mapper->populate();
+		self::setValues();
+
+		parent::run();
 	}
 
-	private function populate()
+	protected static function setValues()
 	{
+		$timestamp = time();
+
 		// Default values for config entities
-		$defaults = array(
+		self::$defaultValues = array(
 			// "readonly" => 0, // For Enums
 			"group" => "general",
 			"time_modified" => $timestamp
 		);
+
 		// The config values to insert
-		$configs = array(
+		self::$insertValues = array(
 			array(	"name" => "SiteName",
 					"value" => "Forum_Name", // Dynamic Variables
 					"description" => "The name of the website to appear in the titlebar, and at the start of breadcrumbs.",
@@ -73,23 +68,5 @@ class Application_Modules_Installer_Models_BuildConfig
 					"description" => "The number of minutes for the Users Online list to display"
 			)
 		);
-
-		foreach ($configs as $config)
-		{
-			$entity = $this->mapper->get();
-
-			foreach ($defaults as $key => $value)
-			{
-				$entity[$key] = $value;
-			}
-			foreach ($config as $key => $value)
-			{
-				$entity[$key] = $value;
-			}
-
-			$this->mapper->save($entity);
-
-
-		}
 	}
 }

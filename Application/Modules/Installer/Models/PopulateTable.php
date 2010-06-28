@@ -1,46 +1,49 @@
 <?php
-class Application_Modules_Installer_Models_PopulateTable
+abstract class Application_Modules_Installer_Models_PopulateTable
 {
-	protected $mapper;
+	protected static $mapper;
 
 
-	protected $defaultValues = array();
-	protected $insertValues = array();
+	protected static $defaultValues = array();
+	protected static $insertValues = array();
 
-	protected function setMapper(Spot_Mapper_Abstract $mapper)
+	protected static function setMapper(Spot_Mapper_Abstract $mapper)
 	{
-		$this->mapper = $mapper;
+		self::$mapper = $mapper;
 	}
 
-	protected function setDefaults(array $default)
+	protected static function setDefaults(array $default)
 	{
-		$this->defaultValues = $default;
+		self::$defaultValues = $default;
 	}
-	protected function setValues(array $values)
+	protected static function setValues(array $values)
 	{
-		$this->insertValues = $values;
+		self::$insertValues = $values;
 	}
 
-	protected function populate()
+	protected static function run()
 	{
-		if (!$this->mapper)
+		if (!self::$mapper)
+			throw new Saros_Application_Exception("You must specify a mapper to populate");
+
+		self::$mapper->migrate();
+
+		self::populate();
+
+		foreach (self::$insertValues as $toInsert)
 		{
-			throw new Application_
-		}
-		foreach ($insertValues as $toInsert)
-		{
-			$entity = $this->mapper->get();
+			$entity = self::$mapper->get();
 
-			foreach ($defaults as $key => $value)
+			foreach (self::$defaultValues as $key => $value)
 			{
 				$entity[$key] = $value;
 			}
-			foreach ($config as $key => $value)
+			foreach ($toInsert as $key => $value)
 			{
 				$entity[$key] = $value;
 			}
 
-			$this->mapper->save($entity);
+			self::$mapper->save($entity);
 		}
 	}
 }
