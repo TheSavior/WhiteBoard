@@ -3,7 +3,7 @@
 * This file will do everything that is done TO a topic.
 * That means, Deleting topics, replying to a topic
 */
-class Application_Modules_Main_Logic_Topic extends Saros_Core_Logic
+class Application_Modules_Main_Controllers_Topic extends Saros_Core_Controller
 {
 	/**
 	* This will show a topic

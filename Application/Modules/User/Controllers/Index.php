@@ -1,9 +1,9 @@
 <?php
 /**
-* This will contain the main user logic:
+* This will contain the main user actions:
 * login, logout, forgout user password, register
 */
-class Application_Modules_User_Logic_ControlPanel extends Saros_Core_Logic
+class Application_Modules_User_Controllers_ControlPanel extends Saros_Core_Controller
 {
 	public function init()
 	{
