@@ -11,7 +11,6 @@
  * @link http://github.com/TheSavior/Saros-Framework
  */
 
-session_start();
 // Lets turn on error reporting
 error_reporting(E_ALL|E_STRICT);
 
@@ -43,6 +42,8 @@ spl_autoload_register('autoload');
 // Expect that autoloader is working now
 set_exception_handler(array('Saros_Exception_Handler', 'handle'));
 
+// Start the global session
+Saros_Session::start();
 /*
 Create an output buffer. This is being used
 so that we can at any point clear all output.
@@ -64,9 +65,7 @@ $registry->config  = new Saros_Core_Registry();
 // Load the router
 $registry->router = new Saros_Core_Router();
 
-$registry->display = new Saros_Display($registry);
-
-$registry->display->init();
+$registry->display = Saros_Display::getInstance($registry);
 
 // Get the current route
 $registry->router->parseRoute();

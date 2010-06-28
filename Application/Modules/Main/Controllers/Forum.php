@@ -3,6 +3,6 @@ class Application_Modules_Main_Controllers_Forum extends Saros_Application_Contr
 {
 	public function indexAction()
 	{
-		$this->view->Version = Saros_Version::getVersion();
+		$this->view->show(false);
 	}
 }
